@@ -1,24 +1,16 @@
 package com.s63d.ervehicleservice.controllers
 
-import io.jsonwebtoken.Jwts
+import com.s63d.ervehicleservice.services.VehicleService
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.*
 
-@RestController
-@RequestMapping("/api/vehicle")
-class VehicleController {
+@RestController("/api/vehicle")
+class VehicleController(private val vehicleService: VehicleService) {
 
     @PostMapping
     fun createVehicle(@RequestParam license: String, @RequestParam type: String, @RequestParam brand: String,
-                      @RequestParam weight: Int, @RequestHeader(HttpHeaders.AUTHORIZATION) authHeader: String) {
-        val uid = parseUid(authHeader)
-        println(uid)
-    }
+                      @RequestParam weight: Int, @RequestParam color: String, @RequestHeader(HttpHeaders.AUTHORIZATION) accountId: Long) = vehicleService.createNew(license, type, brand, color, weight, accountId)
 
-
-
-    private fun parseUid(rawHeader: String) : Long {
-        val header = rawHeader.replace("Bearer ", "")
-        return Jwts.parser().setSigningKey("c2VjcmV0").parseClaimsJws(rawHeader).body["userId"] as Long
-    }
+    @GetMapping
+    fun test() = vehicleService.getForAccount(1)
 }
