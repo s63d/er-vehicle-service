@@ -26,6 +26,4 @@ class VehicleService(private val vehicleRepository: VehicleRepository, private v
                 license
             else
                 license.md5()).get()
-
-
 }
