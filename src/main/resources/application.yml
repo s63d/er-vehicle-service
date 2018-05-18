@@ -10,8 +10,8 @@ spring:
     main:
       banner-mode: "off"
 
-hosts:
-  account-service: "localhost:8080"
+urls:
+  account-service: "localhost:8081"
 ---
 spring:
   profiles: docker-compose
@@ -19,5 +19,5 @@ spring:
       url: jdbc:mysql://vehicle-db:3306/vehicle-db
       username: root
       password: accounts
-hosts:
+urls:
   account-service: "account-service:8080"
