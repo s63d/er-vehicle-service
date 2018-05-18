@@ -14,6 +14,6 @@ spring:
 spring:
   profiles: docker-compose
   datasource:
-      url: jdbc:mysql://account-db:3306/account-db
+      url: jdbc:mysql://vehicle-db:3306/vehicle-db
       username: root
       password: accounts

@@ -1,4 +1,4 @@
-package com.s63d.eraccountservice
+package com.s63d.ervehicleservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
