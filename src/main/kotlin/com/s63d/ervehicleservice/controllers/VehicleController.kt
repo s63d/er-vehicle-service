@@ -12,5 +12,9 @@ class VehicleController(private val vehicleService: VehicleService) {
                       @RequestParam weight: Int, @RequestParam color: String, @RequestHeader(HttpHeaders.AUTHORIZATION) accountId: Long) = vehicleService.createNew(license, type, brand, color, weight, accountId)
 
     @GetMapping
-    fun test() = vehicleService.getForAccount(1)
+    fun allVehicles() = vehicleService.getForAccount(1) // TODO get account id from header
+
+    @GetMapping("{license}")
+    fun byLicense(@PathVariable license: String) = vehicleService.getByLicense(license)
+
 }

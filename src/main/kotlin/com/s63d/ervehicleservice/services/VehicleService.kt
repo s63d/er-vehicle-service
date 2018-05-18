@@ -21,5 +21,11 @@ class VehicleService(private val vehicleRepository: VehicleRepository, private v
     }
 
     fun getForAccount(accountId: Long) = accountService.findById(accountId).ownerships.map { it.vehicle }
+      fun getByLicense(license: String) =
+            vehicleRepository.findById(if(vehicleRepository.existsById(license))
+                license
+            else
+                license.md5()).get()
+
 
 }
