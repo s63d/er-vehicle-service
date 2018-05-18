@@ -1,5 +1,7 @@
 package com.s63d.ervehicleservice.domain
 
+import javax.persistence.Entity
 import javax.persistence.Id
 
-data class SimpleUser (@Id val email: String)
+@Entity
+data class SimpleUser (@Id val id: Long)

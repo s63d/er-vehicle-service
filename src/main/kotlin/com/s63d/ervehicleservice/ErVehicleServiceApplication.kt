@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ErAccountServiceApplication
+class ErVehicleServiceApplication
 
 fun main(args: Array<String>) {
-    runApplication<ErAccountServiceApplication>(*args)
+    runApplication<ErVehicleServiceApplication>(*args)
 }
