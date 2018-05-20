@@ -7,14 +7,13 @@ import org.springframework.stereotype.Service
 @Service
 class JwtService {
 
-    fun decode(rawToken: String): MutableMap<String, Claim> {
+    fun decode(rawToken: String): Map<String, Claim> {
         val token = rawToken.replace("Bearer ", "")
         return JWT.decode(token).claims
     }
 
     fun getAccountId(token: String) : Long {
-        return decode(token).getOrElse("sub", {
-            throw Exception("Invalid token")
-        }).asLong()
+        val claims = decode(token)
+        return claims["sub"]?.asString()?.toLong() ?: throw Exception("Invalid token") // TODO 400 unauthorized exception
     }
 }
