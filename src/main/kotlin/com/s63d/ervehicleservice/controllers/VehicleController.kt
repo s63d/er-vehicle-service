@@ -24,6 +24,9 @@ class VehicleController(private val vehicleService: VehicleService, private val 
     @GetMapping("current")
     fun currentVehicles(@RequestParam user:Long?, @RequestHeader(HttpHeaders.AUTHORIZATION) authHeader: String) = ownershipService.currentVehicles(user ?: jwtService.getAccountId(authHeader))
 
+    @GetMapping("history")
+    fun pastVehicles(@RequestParam user:Long?, @RequestHeader(HttpHeaders.AUTHORIZATION) authHeader: String) = ownershipService.pastVehicles(user ?: jwtService.getAccountId(authHeader))
+
     @GetMapping("{license}")
     fun byLicense(@PathVariable license: String) = vehicleService.getByLicense(license)
 
