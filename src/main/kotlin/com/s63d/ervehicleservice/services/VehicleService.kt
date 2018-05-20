@@ -28,4 +28,5 @@ class VehicleService(internal val vehicleRepository: VehicleRepository, private 
             license.md5()).get()
 
     fun suspend(license: String, accountId: Long) = ownershipService.suspend(getByLicense(license), accountService.getOrCreate(accountId))
+    fun getByCarTracker(carTrackerId: String) = vehicleRepository.findByCarTrackerId(carTrackerId)
 }
