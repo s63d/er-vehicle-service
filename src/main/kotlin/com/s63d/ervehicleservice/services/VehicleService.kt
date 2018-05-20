@@ -1,5 +1,6 @@
 package com.s63d.ervehicleservice.services
 
+import com.s63d.ervehicleservice.domain.Ownership
 import com.s63d.ervehicleservice.domain.Vehicle
 import com.s63d.ervehicleservice.repositories.VehicleRepository
 import com.s63d.ervehicleservice.utils.md5
@@ -21,9 +22,11 @@ class VehicleService(private val vehicleRepository: VehicleRepository, private v
     }
 
     fun getForAccount(accountId: Long) = accountService.findById(accountId).ownerships.map { it.vehicle }
-      fun getByLicense(license: String) =
-            vehicleRepository.findById(if(vehicleRepository.existsById(license))
-                license
-            else
-                license.md5()).get()
+    fun getByLicense(license: String) =
+        vehicleRepository.findById(if(vehicleRepository.existsById(license))
+            license
+        else
+            license.md5()).get()
+
+    fun suspend(license: String, accountId: Long) = ownershipService.suspend(getByLicense(license), accountService.getOrCreate(accountId))
 }
