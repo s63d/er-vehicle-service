@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 class VehicleController(private val vehicleService: VehicleService, private val ownershipService: OwnershipService, private val jwtService: JwtService) {
 
     @GetMapping
-    fun allVehicles(@RequestParam user:Long?, @RequestHeader(HttpHeaders.AUTHORIZATION) authHeader: String) = vehicleService.getForAccount(user ?: jwtService.getAccountId(authHeader))
+    fun allVehicles(@RequestParam user:Long?, @RequestHeader(HttpHeaders.AUTHORIZATION) authHeader: String) = vehicleService.vehicleRepository.findAll() // vehicleService.getForAccount(user ?: jwtService.getAccountId(authHeader))
 
     @PostMapping
     fun createVehicle(@RequestParam license: String, @RequestParam type: String, @RequestParam brand: String,
