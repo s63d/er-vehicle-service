@@ -19,5 +19,7 @@ spring:
       url: jdbc:mysql://vehicle-db:3306/vehicle-db
       username: root
       password: accounts
+  jpa:
+    show-sql: false
 urls:
   account-service: "account-service:8080"
