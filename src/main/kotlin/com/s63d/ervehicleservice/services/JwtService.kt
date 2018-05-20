@@ -12,4 +12,9 @@ class JwtService {
         return JWT.decode(token).claims
     }
 
+    fun getAccountId(token: String) : Long {
+        return decode(token).getOrElse("sub", {
+            throw Exception("Invalid token")
+        }).asLong()
+    }
 }
