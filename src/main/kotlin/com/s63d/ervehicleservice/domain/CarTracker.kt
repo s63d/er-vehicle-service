@@ -1,9 +1,8 @@
 package com.s63d.ervehicleservice.domain
 
+import java.util.*
 import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-data class CarTracker(@Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long)
+data class CarTracker(@Id  val id: String = UUID.randomUUID().toString())
