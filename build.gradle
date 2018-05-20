@@ -65,7 +65,7 @@ dependencies {
     runtime('mysql:mysql-connector-java')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    compile 'io.jsonwebtoken:jjwt:0.9.0'
+    compile('com.auth0:java-jwt:3.3.0')
 }
 
 dependencyManagement {
