@@ -22,4 +22,8 @@ class OwnershipService(private val ownershipRepository: OwnershipRepository) {
         ownership.endDate = Date()
         return ownershipRepository.save(ownership)
     }
+
+    fun currentVehicles(accountId: Long) = ownershipRepository.getByAccountId(accountId).filter {
+       it.endDate == null
+    }
 }

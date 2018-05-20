@@ -1,10 +1,11 @@
 package com.s63d.ervehicleservice.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.*
 import javax.persistence.*
 
 
 @Entity
 data class Ownership(val startDate: Date = Date(), var endDate: Date? = null,
-                     @ManyToOne val account: SimpleAccount,
+                     @JsonIgnore @ManyToOne val account: SimpleAccount,
                      @ManyToOne val vehicle: Vehicle, @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long = 0)
