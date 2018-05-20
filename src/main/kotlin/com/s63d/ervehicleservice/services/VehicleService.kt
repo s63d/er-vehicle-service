@@ -1,13 +1,12 @@
 package com.s63d.ervehicleservice.services
 
-import com.s63d.ervehicleservice.domain.Ownership
 import com.s63d.ervehicleservice.domain.Vehicle
 import com.s63d.ervehicleservice.repositories.VehicleRepository
 import com.s63d.ervehicleservice.utils.md5
 import org.springframework.stereotype.Service
 
 @Service
-class VehicleService(private val vehicleRepository: VehicleRepository, private val ownershipService: OwnershipService, private val accountService: AccountService) {
+class VehicleService(internal val vehicleRepository: VehicleRepository, private val ownershipService: OwnershipService, private val accountService: AccountService) {
 
     fun createNew(license: String, type: String, brand: String, color: String, weight: Int, accountId: Long): Vehicle {
         val account = accountService.getOrCreate(accountId)
