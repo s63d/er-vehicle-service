@@ -12,6 +12,12 @@ spring:
 
 urls:
   account-service: "localhost:8081"
+management:
+    endpoints:
+        web:
+            exposure:
+                include: prometheus, health, info
+
 ---
 spring:
   profiles: docker-compose
