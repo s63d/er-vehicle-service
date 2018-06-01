@@ -30,7 +30,7 @@ class JwtAuthorizationFilter(authenticationManager: AuthenticationManager) : Bas
 
         try {
             val user = JWT.decode(token)
-            val role = user.getClaim("userRole")
+            val role = user.getClaim("userRole").asString().toUpperCase()
             SecurityContextHolder.getContext().authentication =
                     UsernamePasswordAuthenticationToken(user.id, null, listOf(SimpleGrantedAuthority("ROLE_$role")))
         } catch (_: Exception) {
