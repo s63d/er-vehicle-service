@@ -1,4 +1,4 @@
-package com.s63d.ervehicleservice.domain
+package com.s63d.ervehicleservice.domain.db
 
 import javax.persistence.Entity
 import javax.persistence.Id
