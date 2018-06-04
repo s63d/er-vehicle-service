@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service
 class GovernmentService(private val vehicleRepository: VehicleRepository) {
 
     fun getCars(pageable: Pageable = Pageable.unpaged()) =  vehicleRepository.findAll(pageable).map {
-        GovernmentVehicle(it)
+        GovernmentVehicle(it.ownership)
     }
 }
