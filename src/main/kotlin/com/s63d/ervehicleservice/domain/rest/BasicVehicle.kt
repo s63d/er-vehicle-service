@@ -5,8 +5,8 @@ import com.s63d.ervehicleservice.domain.db.CarTracker
 import com.s63d.ervehicleservice.domain.db.Ownership
 import java.util.*
 
-data class BasicCar(val id: String, val type: String, val brand: String, val color: String, val weight: Int,
-                    val rate: Char, val registrationDate: Date, val endDate: Date?, @JsonIgnore private val carTracker: CarTracker?) {
+data class BasicVehicle(val id: String, val type: String, val brand: String, val color: String, val weight: Int,
+                        val rate: Char, val registrationDate: Date, val endDate: Date?, @JsonIgnore private val carTracker: CarTracker?) {
 
     constructor(ownership: Ownership) : this(ownership.vehicle.id, ownership.vehicle.type, ownership.vehicle.brand, ownership.vehicle.color, ownership.vehicle.weight, ownership.vehicle.rate, ownership.startDate, ownership.endDate, ownership.vehicle.carTracker)
 

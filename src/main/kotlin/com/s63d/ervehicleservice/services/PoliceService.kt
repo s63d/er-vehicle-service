@@ -12,7 +12,7 @@ class PoliceService(private val vehicleService: VehicleService, private val stol
 //    val URL: String = "http://api.rekeningrijders.nl/police/v1/car/stolen"
     fun stolenCar(license: String) {
         var car = vehicleService.getByLicense(license)
-        val lastseen = Lastseen(0, 0,2.34564, 3.46467)
+        val lastseen = Lastseen( timestamp = 0, lat = 2.34564, lng = 3.46467)
         lastseenRepository.save(lastseen)
         val stolenCar = StolenCar(car.id, "AT", car.color, car.brand, car.type, "test", "test", "medium", 0, lastseen)
         stolenVehicleRepository.save(stolenCar)

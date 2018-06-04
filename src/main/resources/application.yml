@@ -1,6 +1,6 @@
 spring:
     datasource:
-        url: jdbc:mysql://localhost:1222/er-sols
+        url: jdbc:mysql://localhost:1222/er-sols?useSSL=false
         username: root
         password: password
     jpa:
@@ -22,7 +22,7 @@ management:
 spring:
   profiles: docker-compose
   datasource:
-      url: jdbc:mysql://vehicle-db:3306/vehicle-db
+      url: jdbc:mysql://vehicle-db:3306/vehicle-db?useSSL=false
       username: root
       password: accounts
   jpa:
