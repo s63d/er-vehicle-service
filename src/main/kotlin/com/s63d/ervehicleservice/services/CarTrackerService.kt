@@ -1,6 +1,6 @@
 package com.s63d.ervehicleservice.services
 
-import com.s63d.ervehicleservice.domain.CarTracker
+import com.s63d.ervehicleservice.domain.db.CarTracker
 import com.s63d.ervehicleservice.repositories.CarTrackerRepository
 import org.springframework.stereotype.Service
 

@@ -1,4 +1,4 @@
-package com.s63d.ervehicleservice.domain
+package com.s63d.ervehicleservice.domain.db
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.Entity

@@ -1,8 +1,7 @@
 package com.s63d.ervehicleservice.repositories
 
-import com.s63d.ervehicleservice.domain.Ownership
-import com.s63d.ervehicleservice.domain.SimpleAccount
-import org.springframework.data.jpa.repository.JpaRepository
+import com.s63d.ervehicleservice.domain.db.Ownership
+import com.s63d.ervehicleservice.domain.db.SimpleAccount
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 
