@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*
 class PoliceController(private val policeService: PoliceService) {
 
     @PostMapping("{license}/stolen")
-    fun stolenCar(@PathVariable license: String)= policeService.stolenCar(license)
+    fun stolenCar(@PathVariable license: String) = policeService.stolenCar(license)
 
     @PostMapping("/stolen")
-    fun createForeignStolenCar(stolenCar: StolenCar)= policeService.createForeignStolenCar(stolenCar)
+    fun createForeignStolenCar(stolenCar: StolenCar) = policeService.createForeignStolenCar(stolenCar)
 }

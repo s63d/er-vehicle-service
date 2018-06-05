@@ -17,7 +17,7 @@ class VehicleService(internal val vehicleRepository: VehicleRepository, private 
             throw Exception("License already registered")
 
         vehicleRepository.save(vehicle)
-        return ownershipService.createNew(vehicle, account)
+        return ownershipService.createNewVehicle(vehicle, account)
     }
 
     fun getForAccount(accountId: Long) = accountService.findById(accountId).ownerships.map { it.vehicle }
