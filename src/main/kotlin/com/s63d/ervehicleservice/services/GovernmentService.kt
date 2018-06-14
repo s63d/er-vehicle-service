@@ -22,7 +22,7 @@ class GovernmentService(private val vehicleRepository: VehicleRepository, privat
     }
 
     fun getCar(id: String) = GovernmentVehicle(
-            vehicleRepository.findById(id).orElseThrow { Exception("Car $id not found") }
+            vehicleRepository.findById(id).orElseGet { vehicleRepository.findByCarTrackerId(id) ?: throw Exception("$id not found") }
                     .ownership
     )
 }

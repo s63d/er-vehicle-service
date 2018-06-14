@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.CrudRepository
 
 interface VehicleRepository : JpaRepository<Vehicle, String> {
-    fun findByCarTrackerId(carTrackerId: String): Vehicle
+    fun findByCarTrackerId(carTrackerId: String): Vehicle?
 }
